@@ -38,19 +38,6 @@ class Solution {
         }
         return digitK;
     }
-
-    //k진수 -> 10진수
-    public long fromK(String s, int k){
-        long digit = 0;
-        for(long i = 0;i<s.length();i++){
-            long place = 1;
-            for(long j=0; j<i;j++){
-                place *= k;
-            }
-            digit += place*Long.parseLong(""+s.charAt(s.length()-1-(int)i));
-        }
-        return digit;
-    }
     
     //소수인지 확인
     public boolean isPrime(long number){
@@ -59,13 +46,7 @@ class Solution {
         }
         
         for (long i = 2; i <= Math.sqrt(number); i++) {
-             // double target = number;
-             // double divider = i;
-             // double quote = target / divider;
-             // long intQuote = (long) quote;
-             // if (quote - intQuote == 0) {
-             //        continue;
-             // }
+             
             if(number%i==0){
                 return false;
             }
