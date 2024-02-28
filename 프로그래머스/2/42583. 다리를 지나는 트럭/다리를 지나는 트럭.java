@@ -11,11 +11,9 @@ class Solution {
         int presentWeight = 0;
         
         int[] time = new int[truck_weights.length];
-        Arrays.fill(time,0);
         
         int next = 0;
         int finished = 0;
-        int unloaded = 0;
         
         while(finished<truck_weights.length){
             count++;
