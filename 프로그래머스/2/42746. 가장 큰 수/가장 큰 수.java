@@ -13,7 +13,6 @@ class Solution {
         }
         //정렬
         list.sort((s1, s2) -> compare(s1, s2));
-        //sort(list);
         //출력
         for (String s : list) {
             answer += s;
@@ -24,27 +23,6 @@ class Solution {
         }
         return answer;
     }
-    
-    public void sort(ArrayList<String> list) {
-        int n = list.size();
-        boolean swapped;
-        for(int i=0;i<n;i++){
-            swapped = false;
-            for(int j=0;j<n-i-1;j++){
-                
-                String s1 = list.get(j);
-                String s2 = list.get(j + 1);
-                if(compare(s1,s2)==1){
-                    Collections.swap(list,j,j+1);
-                    swapped = true;
-                }
-            }
-            if(swapped == false){
-                break;
-            }
-        }
-    }
-
 
     public int compare(String s1, String s2) {
         int length = Math.min(s1.length(),s2.length());
