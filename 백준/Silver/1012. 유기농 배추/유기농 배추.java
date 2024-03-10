@@ -6,18 +6,17 @@ public class Main {
     static int [][] arr;
     static boolean [][] checked;
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Integer> list = new ArrayList<>();
 
-        int cases = Integer.parseInt(scanner.nextLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int cases = Integer.parseInt(st.nextToken());
         for(int idx = 0; idx<cases; idx++){
-            String s = scanner.nextLine();
-            String [] t = s.split(" ");
-            int n = Integer.parseInt(t[0]);
-            int m = Integer.parseInt(t[1]);
-            int k = Integer.parseInt(t[2]);
+            st = new StringTokenizer(br.readLine());
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
+            int k = Integer.parseInt(st.nextToken());
 
             arr = new int [n][m];
             checked = new boolean[n][m];
@@ -25,10 +24,9 @@ public class Main {
             int count = 0;
 
             for(int i=0;i<k;i++){
-                String str = scanner.nextLine();
-                String [] temp = str.split(" ");
-                starters[i][0] = Integer.parseInt(temp[0]);
-                starters[i][1] = Integer.parseInt(temp[1]);
+                st = new StringTokenizer(br.readLine());
+                starters[i][0] = Integer.parseInt(st.nextToken());
+                starters[i][1] = Integer.parseInt(st.nextToken());
                 arr[starters[i][0]][starters[i][1]] = 1;
             }
 
