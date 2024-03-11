@@ -8,20 +8,23 @@ public class Main {
     static boolean [][] checkedBG;
 
     public static void main(String[] args) throws IOException{
-        Scanner scanner = new Scanner(System.in);
 
-        int n = Integer.parseInt(scanner.nextLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
 
         arr = new char[n][n];
         checked = new boolean[n][n];
         checkedBG = new boolean[n][n];
 
         for(int i=0;i<n;i++){
-            String s = scanner.nextLine();
+            String s = br.readLine();
             for(int j=0;j<s.length();j++){
                 arr[i][j] = s.charAt(j);
             }
         }
+        br.close();
+
         int count = 0;
         int countBG = 0;
 
@@ -42,78 +45,40 @@ public class Main {
         System.out.println(count+" "+countBG);
     }
 
-    public static void search(int i, int j, char c){
+    public static void search(int x, int y, char c){
 
-        Queue<Integer> xq = new LinkedList<>();
-        Queue<Integer> yq = new LinkedList<>();
-
-        xq.add(i);
-        yq.add(j);
-        checked[i][j] = true;
-
-        while(!xq.isEmpty()&&!yq.isEmpty()) {
-
-            int x = xq.poll();
-            int y = yq.poll();
+        checked[x][y] = true;
 
             if(x-1>=0&&!checked[x-1][y]&&arr[x-1][y]==c){
-                xq.add(x-1);
-                yq.add(y);
-                checked[x-1][y] = true;
+                search(x-1,y,c);
             }
             if(x+1<arr.length&&!checked[x+1][y]&&arr[x+1][y]==c){
-                xq.add(x+1);
-                yq.add(y);
-                checked[x+1][y] = true;
+                search(x+1,y,c);
             }
             if(y+1<arr[0].length&&!checked[x][y+1]&&arr[x][y+1]==c){
-                xq.add(x);
-                yq.add(y+1);
-                checked[x][y+1] = true;
+                search(x,y+1,c);
             }
             if(y-1>=0&&!checked[x][y-1]&&arr[x][y-1]==c){
-                xq.add(x);
-                yq.add(y-1);
-                checked[x][y-1] = true;
+                search(x,y-1,c);
             }
-        }
     }
 
-    public static void searchBG(int i, int j, char c){
+    public static void searchBG(int x, int y, char c){
 
-        Queue<Integer> xq = new LinkedList<>();
-        Queue<Integer> yq = new LinkedList<>();
-
-        xq.add(i);
-        yq.add(j);
-        checkedBG[i][j] = true;
-
-        while(!xq.isEmpty()&&!yq.isEmpty()) {
-
-            int x = xq.poll();
-            int y = yq.poll();
+        checkedBG[x][y] = true;
 
             if(x-1>=0&&!checkedBG[x-1][y]&&isSame(arr[x-1][y],c)){
-                xq.add(x-1);
-                yq.add(y);
-                checkedBG[x-1][y] = true;
+                searchBG(x-1,y,c);
             }
             if(x+1<arr.length&&!checkedBG[x+1][y]&&isSame(arr[x+1][y],c)){
-                xq.add(x+1);
-                yq.add(y);
-                checkedBG[x+1][y] = true;
+                searchBG(x+1,y,c);
             }
             if(y+1<arr[0].length&&!checkedBG[x][y+1]&&isSame(arr[x][y+1],c)){
-                xq.add(x);
-                yq.add(y+1);
-                checkedBG[x][y+1] = true;
+                searchBG(x,y+1,c);
             }
             if(y-1>=0&&!checkedBG[x][y-1]&&isSame(arr[x][y-1],c)){
-                xq.add(x);
-                yq.add(y-1);
-                checkedBG[x][y-1] = true;
+                searchBG(x,y-1,c);
             }
-        }
     }
 
     public static boolean isSame(char c, char target){
