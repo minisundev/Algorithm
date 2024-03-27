@@ -5,7 +5,6 @@ class Solution {
     public int solution(int[][] data, int col, int row_begin, int row_end) {
         int answer = 0;
         int [] index = new int [data.length];
-        //data에 뭐가 들어있을지 알고 다 바꿈... 그냥 index를 저장하는 배열 만들어서 순서 저장하자?
         //초기화
         for(int i=0;i<data.length;i++){
             index[i] = i;
