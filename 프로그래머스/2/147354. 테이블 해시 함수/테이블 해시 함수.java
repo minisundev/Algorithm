@@ -32,7 +32,6 @@ class Solution {
         }
         
         //S_i 구하기
-        int S = -1;
         int hash = 0;
         for(int i = row_begin; i<= row_end; i++){
             int idx = index[i-1];
@@ -40,11 +39,8 @@ class Solution {
             for(int j = 0; j< data[0].length; j++){
                 S_i += data[idx][j]%i;
             }
-            if(S!=-1){
-                S = S_i;
-            }else{
-                hash = hash^S_i;
-            }
+            
+            hash = hash^S_i;
             
         }
         
