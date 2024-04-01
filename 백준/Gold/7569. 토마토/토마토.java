@@ -67,24 +67,13 @@ public class Main {
 
     public static int search() {
 
-        List<Integer> xq = new ArrayList<>();
-        List<Integer> yq = new ArrayList<>();
-        List<Integer> zq = new ArrayList<>();
+        List<Integer> xq = listX;
+        List<Integer> yq = listY;
+        List<Integer> zq = listZ;
 
         List<Integer> nextX;
         List<Integer> nextY;
         List<Integer> nextZ;
-
-
-        for (int x : listX) {
-            xq.add(x);
-        }
-        for (int y : listY) {
-            yq.add(y);
-        }
-        for(int z : listZ){
-            zq.add(z);
-        }
 
         int count = -1;
 
