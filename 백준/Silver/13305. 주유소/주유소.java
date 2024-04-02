@@ -6,11 +6,6 @@ import java.lang.Math;
 
 public class Main {
 
-    static int [] roads;
-    static int [] stations;
-
-    static int sum = 0;
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,20 +13,21 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
 
-        roads = new int [n-1];
-        stations = new int[n];
+        long [] roads = new long [n-1];
+        long [] stations = new long[n];
+        long sum = 0;
 
         st = new StringTokenizer(br.readLine());
         for(int i=0; i<n-1; i++){
-            roads[i] = Integer.parseInt(st.nextToken());
+            roads[i] = Long.parseLong(st.nextToken());
         }
 
         st = new StringTokenizer(br.readLine());
         for(int i=0; i<n; i++){
-            stations[i] = Integer.parseInt(st.nextToken());
+            stations[i] = Long.parseLong(st.nextToken());
         }
 
-        int oil = stations[0];
+        long oil = stations[0];
         for(int i=0;i<stations.length-1;i++){
             oil = Math.min(stations[i],oil);
             sum+= oil*roads[i];
