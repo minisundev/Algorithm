@@ -9,7 +9,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         while(true) {
-            K=sc.nextInt();	//개수
+            K=sc.nextInt();
 
             if(K==0)
                 break;
@@ -22,7 +22,7 @@ public class Main {
             System.out.println();
         }
 
-    }// main()
+    }
 
     public static void search(String s ,int max, int count){
         if(6==count){
