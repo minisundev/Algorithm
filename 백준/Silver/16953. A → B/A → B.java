@@ -41,9 +41,8 @@ public class Main {
                 if(i>target){
                     continue;
                 }else if(i==target){
-                    if(min>count){
-                        min = count;
-                    }
+                    min = count;
+                    return;
                 }
                 next.add(i*10+1);
                 next.add(i*2);
@@ -52,5 +51,4 @@ public class Main {
             list = next;
         }
     }
-
 }
