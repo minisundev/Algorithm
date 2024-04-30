@@ -21,8 +21,7 @@ class Solution {
             set.add(s);
             lastString = s;
         }
-        
-        System.out.println(last+" "+lastString);
+
         int turn;
         int person;
         
