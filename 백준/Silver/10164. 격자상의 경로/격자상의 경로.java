@@ -26,17 +26,17 @@ public class Main {
             mustY = 1;
         }
 
-        int result = combination(mustX-1, mustY-1);
+        long result = combination(mustX-1, mustY-1);
         result *= combination(n-mustX, m-mustY);
 
         System.out.println(result);
     }
 
-    public static int combination(int n_r, int r){
+    public static long combination(int n_r, int r){
 
         int max = Math.max(r,n_r);
         int min = Math.min(r,n_r);
-        int combination = 1;
+        long combination = 1;
         for(int i=n_r+r; i>max; i--){
             combination *= i;
         }
