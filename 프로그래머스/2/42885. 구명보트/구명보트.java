@@ -13,7 +13,7 @@ class Solution {
             int sum = 0;
             sum += people[right--];//무거운 사람 일단 태움
             
-            if(sum + people[left]<=limit&&left<=right){//가벼운 사람 태울 수 있으면 태움
+            if(sum + people[left]<=limit){//가벼운 사람 태울 수 있으면 태움
                 sum += people[left];
                 left++;
             }
