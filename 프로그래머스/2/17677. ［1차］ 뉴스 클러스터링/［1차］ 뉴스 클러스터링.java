@@ -10,7 +10,6 @@ class Solution {
         Map<String,Integer> union = new HashMap<>();
         Map<String,Integer> intersection = new HashMap<>();
         
-        boolean skipped = false;
         char last = Character.toUpperCase(str1.charAt(0));
         for(int i=1; i<str1.length(); i++){
             char now = Character.toUpperCase(str1.charAt(i));
@@ -78,8 +77,6 @@ class Solution {
         }else{
             divided = same/total;
         }
-        
-        System.out.println(same+"/"+total);
         
         double result = 65536*divided;
         int answer = (int)result;
