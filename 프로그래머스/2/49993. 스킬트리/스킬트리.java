@@ -22,14 +22,10 @@ class Solution {
                 int seq = map.getOrDefault(c,-1);
                 
                 if(seq!=-1){
-                    if(learned>seq){//나중에 배워야 하는게 먼저 나오면 
-                        continue loop;//다음것으로 넘어가기
-                    }else{//아니라면 배운 것에 저장하기, 1 차이가 날 때만 저장할 수 있다
-                        if(learned+1 == seq){
-                            learned++;
-                        }else{//하나 건너뛰면 또 넘어감
-                            continue loop;
-                        }
+                    if(learned+1 == seq){
+                        learned++;
+                    }else{//그 이외의 모든 경우는 맞지 않다
+                        continue loop;
                     }
                 }
             }
