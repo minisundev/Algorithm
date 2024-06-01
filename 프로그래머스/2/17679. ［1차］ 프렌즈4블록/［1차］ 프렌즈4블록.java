@@ -25,11 +25,10 @@ class Solution {
             hasChanged = false;
             
             //지울 인덱스 리스트 Set으로 만듦 중복을 방지하기 위해서
-            List<Set<Integer>> remove = new ArrayList<>();
+            List<PriorityQueue<Integer>> remove = new ArrayList<>();
             for(int i=0; i<n; i++){
-                remove.add(new HashSet<>());
+                remove.add(new PriorityQueue<>());
             }
-            
         
             //왼쪽줄 1개랑 오른쪽줄 1개랑 가져와서 봄
             for(int j=0; j<n-1; j++){
@@ -46,8 +45,6 @@ class Solution {
                     char l2 = left.get(left.size()-1-(i+1));
                     char r1 = right.get(right.size()-1-i);
                     char r2 = right.get(right.size()-1-(i+1));
-                    //System.out.println(l1+","+l2+","+r1+","+r2);//아니 테케 다 돌렷는데 제대로 돌아가는디.. 중간과정도.. 어쩌라고 어쩌라고 진짜 
-                    //힘들다 진자 흑흑 내가 여태껏 제출한 코드들도 히든케이스에서 안 돌아갔겠지...
                 
                     if(l1==l2 && l2==r1 && r1==r2){
                         hasChanged = true;
@@ -61,16 +58,19 @@ class Solution {
             
             for(int i=0; i<n; i++){
                 List<Character> chars = list.get(i);
-                Set<Integer> targets = remove.get(i);
-                answer += targets.size();
+                PriorityQueue<Integer> targets = remove.get(i);
                 
-                List<Integer> targetList = new ArrayList<>(targets);
-                Collections.sort(targetList);
-                
+                int last = -1;
                 int diff = 0;
-                for(int t : targetList){
+                while(!targets.isEmpty()){
+                    int t = targets.poll();
+                    if(t==last){
+                        continue;
+                    }
                     chars.remove(t-diff);
                     diff++;
+                    answer++;
+                    last=t;
                 }
             }
         }
