@@ -51,16 +51,6 @@ class Solution {
             min = Math.min(min,leftFlip(startX,startY,endX,endY));
             min = Math.min(min,rightFlip(startX,startY,endX,endY));
         }
-        
-//         if(slope1 && slope1(endX,endY)){
-//             min = Math.min(upperLeftFlip(startX,startY,endX,endY),min);
-//             min = Math.min(lowerRightFlip(startX,startY,endX,endY),min);
-//         }
-        
-//         if(slope2 && slope2(endX,endY)){
-//             min = Math.min(upperRightFlip(startX,startY,endX,endY),min);
-//             min = Math.min(lowerLeftFlip(startX,startY,endX,endY),min);
-//         }
             
         return min;
     }
