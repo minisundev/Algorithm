@@ -8,8 +8,6 @@ class Solution {
             hit[i-1] = hit[i-1]+1;
         }
         
-        int [][] result = new int[N][3];
-        
         PriorityQueue<Rate> pq = new PriorityQueue<>(
         (o1,o2)->{
             if(o2.rate!=o1.rate){
